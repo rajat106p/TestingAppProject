@@ -23,7 +23,7 @@ export const Login = ({ navigation }) => {
     if (username === registeruser && password === registeruserpassword) {
       navigation.navigate('Dashboard');
       setUsername('')
-      setPassword('')
+      setPassword('') // 
     } else {
       Alert.alert('Login Failed', 'Invalid username or password.');
     }
@@ -41,10 +41,11 @@ export const Login = ({ navigation }) => {
         style={{ flex: 1 }}
       >
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <Text style={styles.headertxt}>Login Details</Text>
+          <Text style={styles.headertxt} testID='login'>Login Details</Text>
 
           <Text style={styles.labeltxt}>Enter Username</Text>
           <TextInput
+           testID='loginInput'
             style={styles.inputfield}
             onChangeText={(text) => setUsername(text)}
             value={username}
@@ -52,9 +53,11 @@ export const Login = ({ navigation }) => {
           <Text style={styles.labeltxt}>Enter Password</Text>
           <View style={{ flexDirection: "row", justifyContent: "space-between", borderWidth: 1,margin:12,borderRadius:6 }}>
             <TextInput
+             testID='passwordInput'
               secureTextEntry={!showPassword}
               onChangeText={(text) => setPassword(text)}
               value={password}
+              style={{margin: Platform.OS === "ios" ? 15 : null, }}
             />
             <TouchableOpacity onPress={toggleShowPassword}>
               <Text style={{marginRight:12,marginTop:12,fontWeight:"bold",color:"#000"}}>{showPassword ? 'Hide' : 'Show'}</Text>
@@ -72,4 +75,3 @@ export const Login = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-
