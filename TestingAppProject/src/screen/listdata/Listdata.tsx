@@ -12,7 +12,6 @@ export const Listdata = ({ route }) => {
                 <Text style={styles.titletxt}>User Id : {data.userId}</Text>
                 <Text style={[styles.titletxt, { fontSize: 19 }]}>Title : {data.title}</Text>
                 <Text style={styles.bodytxt}>Body : {data.body}</Text>
-                
             </View>
         </SafeAreaView>
 
